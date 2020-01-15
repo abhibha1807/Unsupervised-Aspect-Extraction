@@ -9,7 +9,7 @@ def is_number(token):
 
 def create_vocab(domain, maxlen=0, vocab_size=0):
     assert domain in {'restaurant', 'beer'}
-    source = '../preprocessed_data/'+domain+'/train.txt'
+    source = '/content/drive/My Drive/preprocessed_data/restaurant/train.txt'
 
     total_words, unique_words = 0, 0
     word_freqs = {}
@@ -56,10 +56,10 @@ def create_vocab(domain, maxlen=0, vocab_size=0):
     return vocab
 
 def read_dataset(domain, phase, vocab, maxlen):
-    assert domain in {'restaurant', 'beer'}
+    assert domain in {'restaurant'}
     assert phase in {'train', 'test'}
     
-    source = '../preprocessed_data/'+domain+'/'+phase+'.txt'
+    source = '/content/drive/My Drive/preprocessed_data/restaurant/'+phase+'.txt'
     num_hit, unk_hit, total = 0., 0., 0.
     maxlen_x = 0
     data_x = []

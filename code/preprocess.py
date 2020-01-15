@@ -12,8 +12,8 @@ def parseSentence(line):
     return text_stem
 
 def preprocess_train(domain):
-    f = codecs.open('../datasets/'+domain+'/train.txt', 'r', 'utf-8')
-    out = codecs.open('../preprocessed_data/'+domain+'/train.txt', 'w', 'utf-8')
+    f = codecs.open('/content/drive/My Drive/restaurant_dataset/train.txt', 'r', 'utf-8')
+    out = codecs.open('/content/drive/My Drive/preprocessed_data/restaurant/train.txt', 'w', 'utf-8')
 
     for line in f:
         tokens = parseSentence(line)
@@ -24,10 +24,10 @@ def preprocess_test(domain):
     # For restaurant domain, only keep sentences with single 
     # aspect label that in {Food, Staff, Ambience}
 
-    f1 = codecs.open('../datasets/'+domain+'/test.txt', 'r', 'utf-8')
-    f2 = codecs.open('../datasets/'+domain+'/test_label.txt', 'r', 'utf-8')
-    out1 = codecs.open('../preprocessed_data/'+domain+'/test.txt', 'w', 'utf-8')
-    out2 = codecs.open('../preprocessed_data/'+domain+'/test_label.txt', 'w', 'utf-8')
+    f1 = codecs.open('/content/drive/My Drive/restaurant_dataset/test.txt', 'r', 'utf-8')
+    f2 = codecs.open('/content/drive/My Drive/restaurant_dataset/test_label.txt', 'r', 'utf-8')
+    out1 = codecs.open('/content/drive/My Drive/preprocessed_data/restaurant/test.txt', 'w', 'utf-8')
+    out2 = codecs.open('/content/drive/My Drive/preprocessed_data/restaurant/test_label.txt', 'w', 'utf-8')
 
     for text, label in zip(f1, f2):
         label = label.strip()
@@ -46,6 +46,6 @@ def preprocess(domain):
 
 print 'Preprocessing raw review sentences ...'
 preprocess('restaurant')
-preprocess('beer')
+# preprocess('beer')
 
 
